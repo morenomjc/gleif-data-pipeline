@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gleif-data-jobs
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: EMBEDDED
+  kafka:
+    bootstrap-servers: localhost:9092

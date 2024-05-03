@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: gleif-data-api
+  data:
+    mongodb:
+      database: gleif
+  kafka:
+    bootstrap-servers: localhost:9092
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          elasticsearch: TRACE

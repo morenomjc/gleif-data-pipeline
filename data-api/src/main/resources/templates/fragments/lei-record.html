@@ -1,0 +1,64 @@
+<div id="lei-record" th:fragment="lei-record">
+
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title text-primary" th:text="${data.name}">Name</h3>
+      <h4 class="card-subtitle mb-2 text-secondary" th:text="${data.lei}">LEI</h4>
+      <hr>
+      <h3>Company Data</h3>
+      <table class="table">
+        <tbody>
+        <tr>
+          <td>Other Names</td>
+          <td>
+            <ul class="list-unstyled" th:each="otherName : ${data.otherNames}">
+              <li>
+                <h6 class="fw-semibold" th:text="${otherName.value}"></h6>
+                <p class="text-muted fst-italic" th:text="${otherName.type}"></p>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Legal Address</td>
+          <td>
+            <ul class="list-unstyled" th:each="addressLine : ${data.legalAddress.addressLines}">
+              <li class="fw-semibold" th:text="${addressLine}"></li>
+            </ul>
+            <p class="fw-semibold"
+               th:text="${data.legalAddress.city} + ', ' + ${data.legalAddress.countryName} + ', ' + ${data.legalAddress.postalCode}"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>Headquarters Address</td>
+          <td>
+            <ul class="list-unstyled"
+                th:each="addressLine : ${data.headquartersAddress.addressLines}">
+              <li class="fw-semibold" th:text="${addressLine}"></li>
+            </ul>
+            <p class="fw-semibold"
+               th:text="${data.headquartersAddress.city} + ', ' + ${data.headquartersAddress.countryName} + ', ' + ${data.headquartersAddress.postalCode}"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>Country of Jurisdiction</td>
+          <td>
+            <p class="fw-semibold"
+               th:text="${data.legalJurisdiction} + ' | ' + ${data.countryName}"></p><span
+              th:class="'fi fi-' + ${data.legalJurisdiction.toLowerCase()}"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Entity Status</td>
+          <td class="fw-semibold" th:text="${data.entityStatus}"></td>
+        </tr>
+        <tr>
+          <td>Entity Category</td>
+          <td class="fw-semibold" th:text="${data.entityCategory}"></td>
+        </tr>
+        </tbody>
+      </table>
+      <h3>Identifiers</h3>
+    </div>
+  </div>
+</div>
